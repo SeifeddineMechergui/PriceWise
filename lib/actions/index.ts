@@ -3,10 +3,10 @@
 import { revalidatePath } from "next/cache";
 import Product from "../models/product.model";
 import { connectToDB } from "../mongoose";
-import { scrapeAmazonProduct } from "../scrapper/index";
 import { getAveragePrice, getHighestPrice, getLowestPrice } from "../utils";
 import { User } from "@/types";
 import { generateEmailBody, sendEmail } from "../nodemailer";
+import { scrapeAmazonProduct } from "../scrapper";
 
 export async function scrapeAndStoreProduct(productUrl: string) {
   if(!productUrl) return;
